@@ -2,55 +2,73 @@
 const infoItems = [
     {
         label: 'Joy - OI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,5 rng=30'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} rng=20'
     },
     {
         label: 'Joy - Vol-BS',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,5 rng=30'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} rng=20'
     }
 ];
 
-// Fetch the tickers from tickers.txt and generate columns
-fetch('tickers.txt')
-    .then(response => response.text())
-    .then(data => {
-        const tickers = data.split('\n').filter(ticker => ticker.trim() !== '');
+// Function to calculate the number of weeks till a given date
+function calculateWeeksUntil(expDateStr) {
+    const [month, day, year] = expDateStr.split('-').map(Number);
+    const expDate = new Date(year, month - 1, day);
+    const today = new Date();
+    const timeDiff = expDate.getTime() - today.getTime();
+    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    const weeksDiff = Math.ceil(daysDiff / 7);
+    return Math.max(1, weeksDiff);
+}
+
+// Async function to fetch the expiry date and tickers
+async function fetchData() {
+    try {
+        // Fetch the expiry date
+        const expResponse = await fetch('exp.txt');
+        const expData = await expResponse.text();
+        const expDateStr = expData.split('\n')[0].trim();
+        const exp = calculateWeeksUntil(expDateStr);
+
+        // Fetch the tickers
+        const tickersResponse = await fetch('tickers.txt');
+        const tickersData = await tickersResponse.text();
+        const tickers = tickersData.split('\n').filter(ticker => ticker.trim() !== '');
         const container = document.getElementById('container');
 
         tickers.forEach(ticker => {
-            // Check if ticker is valid, if not, skip this iteration
             if (!ticker || ticker.trim() === '') {
-                return;  // Equivalent to 'continue' in a loop
+                return;
             }
 
-            // Create a column div
             const column = document.createElement('div');
             column.classList.add('column');
 
-            // Create the ticker div
             const tickerDiv = document.createElement('div');
             tickerDiv.classList.add('ticker');
             tickerDiv.textContent = ticker;
 
-            // Create the links div
             const linksDiv = document.createElement('div');
             linksDiv.classList.add('links');
 
             // Generate links dynamically from the infoItems JSON object
             infoItems.forEach(item => {
                 const link = document.createElement('a');
-                link.href = item.href.replace('{ticker}', ticker); // Replace placeholder with ticker
+                link.href = item.href
+                    .replace('{ticker}', ticker)
+                    .replace('{exp}', exp);  // Add the calculated weeks into the URL
                 link.textContent = item.label;
                 linksDiv.appendChild(link);
             });
 
-            // Append ticker and links div to the column
             column.appendChild(tickerDiv);
             column.appendChild(linksDiv);
-
-            // Append column to the container
             container.appendChild(column);
         });
-    })
-    .catch(error => console.error('Error fetching tickers:', error));
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
+// Call the async function
+fetchData();
