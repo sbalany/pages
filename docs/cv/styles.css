@@ -35,16 +35,12 @@ body {
     background-color: #ddd;
 }
 
-.column:nth-child(1) {
-    background-color: #f8b400;
+.column:nth-child(odd) {
+    background-color: #d4f1f4;
 }
 
-.column:nth-child(2) {
-    background-color: #34a853;
-}
-
-.column:nth-child(3) {
-    background-color: #4285f4;
+.column:nth-child(even) {
+    background-color: #9fedf5;
 }
 
 /* Desktop View: Three Columns */
