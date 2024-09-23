@@ -1,12 +1,28 @@
 // Info items in JSON format with placeholders for the ticker in href
 const infoItems = [
     {
-        label: 'Joy - OI',
+        label: 'OI',
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} rng=20'
     },
     {
-        label: 'Joy - Vol-BS',
+        label: 'Vol-BS',
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} rng=20'
+    },
+    {
+        label: 'GxOI',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} rng=20'
+    },
+    {
+        label: 'GxVol',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} rng=20'
+    },
+    {
+        label: 'ChxOI',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} rng=20'
+    },
+    {
+        label: 'ChxVol',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} rng=20'
     }
 ];
 
