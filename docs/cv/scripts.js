@@ -37,6 +37,24 @@ function calculateWeeksUntil(expDateStr) {
     return Math.max(1, weeksDiff);
 }
 
+// Function to get today's date in 'yymmdd' format
+function getDateString() {
+    const today = new Date();
+    const year = today.getFullYear().toString().slice(-2); // Last two digits of the year
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(today.getDate()).padStart(2, '0'); // Pad day with leading zero
+    return `${year}${month}${day}`;
+}
+
+// Function to dynamically set the href attribute
+function setOrdersLink() {
+    const todayTicker = 'spxw' + getDateString();
+    const ordersLink = document.getElementById('ordersLink');
+    const url = `https://convexvalue.com/go/tas/?q=tas cols=symbol,bid_price,ask_price,price,theo,size,value,exchange_sale_conditions,aggressor_side,spot,delta,gamma,vega,theta,volatility,time orderby=time limit=500 like=${todayTicker} filters=value>10000 side=buy`;
+    ordersLink.href = url; // Set the href attribute to the dynamically generated URL
+    // ordersLink.textContent = `Symbol Data for spxw${today}`; // Optionally update the text
+}
+
 // Async function to fetch the expiry date and tickers
 async function fetchData() {
     try {
@@ -88,3 +106,5 @@ async function fetchData() {
 
 // Call the async function
 fetchData();
+setOrdersLink();
+
