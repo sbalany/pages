@@ -31,12 +31,16 @@ body {
     border-radius: 5px;
 }
 
+.links a:nth-child(6n + 1) {
+    clear: left; /* Clear left to start a new row */
+}
+
 .links a:hover {
     background-color: #ddd;
 }
 
 .column:nth-child(odd) {
-    background-color: #d4f1f4;
+    background-color: #43d2e0;
 }
 
 .column:nth-child(even) {

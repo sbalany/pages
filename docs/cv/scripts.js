@@ -23,6 +23,26 @@ const infoItems = [
     {
         label: 'ChxVol',
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} rng=20'
+    },
+    {
+        label: 'Vol-BS (Day)',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1 rng=20'
+    },
+    {
+        label: '60m',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_60m exp=1 rng=20'
+    },
+    {
+        label: '30m',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_30m exp=1 rng=20'
+    },
+    {
+        label: '15m',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_15m exp=1 rng=20'
+    },
+    {
+        label: '5m',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 rng=20'
     }
 ];
 
@@ -86,13 +106,21 @@ async function fetchData() {
             linksDiv.classList.add('links');
 
             // Generate links dynamically from the infoItems JSON object
-            infoItems.forEach(item => {
+            infoItems.forEach((item, index) => {
                 const link = document.createElement('a');
                 link.href = item.href
                     .replace('{ticker}', ticker)
                     .replace('{exp}', exp);  // Add the calculated weeks into the URL
                 link.textContent = item.label;
                 linksDiv.appendChild(link);
+
+                // After every 6 buttons, append a <br> to create a line break
+                if ((index + 1) % 6 === 0) {
+                    lineBreak = document.createElement('br');
+                    linksDiv.appendChild(lineBreak);
+                    lineBreak = document.createElement('br');
+                    linksDiv.appendChild(lineBreak);
+                }
             });
 
             column.appendChild(tickerDiv);
