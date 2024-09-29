@@ -2,11 +2,11 @@ name: Run Headless Chrome App
 
 on:
   schedule:
-    - cron: '32 9 * * *'  # Runs at 9:32 AM every day
-    - cron: '30 11 * * *' # Runs at 11:30 AM every day
-    - cron: '30 13 * * *' # Runs at 1:30 PM every day
-    - cron: '30 15 * * *' # Runs at 3:30 PM every day
-    - cron: '30 17 * * *'
+    - cron: '32 13 * * *'  # Runs at 9:32 AM ET (1:32 PM UTC)
+    - cron: '30 15 * * *'  # Runs at 11:30 AM ET (3:30 PM UTC)
+    - cron: '30 17 * * *'  # Runs at 1:30 PM ET (5:30 PM UTC)
+    - cron: '30 19 * * *'  # Runs at 3:30 PM ET (7:30 PM UTC)
+    - cron: '38 21 * * *'
   workflow_dispatch:
 
 jobs:
