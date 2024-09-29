@@ -3,7 +3,7 @@ const path = require('path');
 
 async function navigateAndScreenshot(page) {
     // const screenshotDir = path.join(process.env.HOME, 'tmp');
-    const screenshotDir = path.join(__dirname, '..', 'tmp');
+    const screenshotDir = path.join(__dirname, '..', 'screenshots');
     const screenshotPath = path.join(screenshotDir, 'screenshot.png');
 
     // Check if the directory exists, if not, create it

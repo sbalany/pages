@@ -2,7 +2,11 @@ name: Run Headless Chrome App
 
 on:
   schedule:
-    - cron: '20 16 * * 1'
+    - cron: '32 9 * * *'  # Runs at 9:32 AM every day
+    - cron: '30 11 * * *' # Runs at 11:30 AM every day
+    - cron: '30 13 * * *' # Runs at 1:30 PM every day
+    - cron: '30 15 * * *' # Runs at 3:30 PM every day
+    - cron: '30 16 * * *'
 
 jobs:
   run:
