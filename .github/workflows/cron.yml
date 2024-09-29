@@ -6,7 +6,7 @@ on:
     - cron: '30 15 * * *'  # Runs at 11:30 AM ET (3:30 PM UTC)
     - cron: '30 17 * * *'  # Runs at 1:30 PM ET (5:30 PM UTC)
     - cron: '30 19 * * *'  # Runs at 3:30 PM ET (7:30 PM UTC)
-    - cron: '38 21 * * *'
+    - cron: '00 22 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,6 +15,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set timezone to ET
+        run: sudo timedatectl set-timezone America/New_York
+
+      - name: Display current time
+        run: date
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
