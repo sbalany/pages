@@ -17,6 +17,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Show timezone
+        run: timedatectl 
+
+      - name: Display current time before
+        run: date
+
       - name: Set timezone to ET
         run: sudo timedatectl set-timezone America/New_York
 
