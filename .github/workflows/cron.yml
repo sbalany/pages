@@ -2,7 +2,7 @@ name: Run Headless Chrome App
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '32 13 * * *'
   workflow_dispatch:
 
 jobs:
