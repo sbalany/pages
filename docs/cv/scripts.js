@@ -2,49 +2,51 @@
 const infoItems = [
     {
         label: 'OI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} rng={range}'
     },
     {
         label: 'Vol-BS',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} rng={range}'
     },
     {
         label: 'GxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} rng={range}'
     },
     {
         label: 'GxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} rng={range}'
     },
     {
         label: 'ChxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} rng={range}'
     },
     {
         label: 'ChxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} rng={range}'
     },
     {
         label: 'Vol-BS (Day)',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1 rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1 rng={range}'
     },
     {
         label: '60m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_60m exp=1 rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_60m exp=1 rng={range}'
     },
     {
         label: '30m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_30m exp=1 rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_30m exp=1 rng={range}'
     },
     {
         label: '15m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_15m exp=1 rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_15m exp=1 rng={range}'
     },
     {
         label: '5m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 rng=20'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 rng={range}'
     }
 ];
+
+const indexes = [ 'SPX', 'SPY', 'QQQ', 'IWM' ];
 
 // Function to calculate the number of weeks till a given date
 function calculateWeeksUntil(expDateStr) {
@@ -105,11 +107,13 @@ async function fetchData() {
             const linksDiv = document.createElement('div');
             linksDiv.classList.add('links');
 
+            let range = indexes.includes(ticker) ? 2 : 20;
             // Generate links dynamically from the infoItems JSON object
             infoItems.forEach((item, index) => {
                 const link = document.createElement('a');
                 link.href = item.href
                     .replace('{ticker}', ticker)
+                    .replace('{range}', range)
                     .replace('{exp}', exp);  // Add the calculated weeks into the URL
                 link.textContent = item.label;
                 linksDiv.appendChild(link);
