@@ -2,47 +2,47 @@
 const infoItems = [
     {
         label: 'OI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'Vol-BS',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'GxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'GxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'ChxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'ChxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'Vol-BS (Day)',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1 rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1 flip=t rng={range}'
     },
     {
         label: '60m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_60m exp=1 rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_60m exp=1 flip=t rng={range}'
     },
     {
         label: '30m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_30m exp=1 rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_30m exp=1 flip=t rng={range}'
     },
     {
         label: '15m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_15m exp=1 rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_15m exp=1 flip=t rng={range}'
     },
     {
         label: '5m',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 flip=t rng={range}'
     }
 ];
 
