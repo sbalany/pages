@@ -5,8 +5,8 @@ const infoItems = [
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} flip=t rng={range}'
     },
     {
-        label: 'Vol-BS',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} flip=t rng={range}'
+        label: 'Van-OI',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} vannaxoi exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'GxOI',
@@ -23,6 +23,10 @@ const infoItems = [
     {
         label: 'ChxVol',
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} flip=t rng={range}'
+    },
+    {
+        label: 'Vol-BS',
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} flip=t rng={range}'
     },
     {
         label: 'Vol-BS (Day)',
