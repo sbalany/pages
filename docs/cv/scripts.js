@@ -47,6 +47,10 @@ const infoItems = [
     {
         label: '5m',
         href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volmbs_5m exp=1 flip=t rng={range}'
+    },
+    {
+        label: 'Flow',
+        href: 'https://convexvalue.com/go/flowchart/?q=flowchart {ticker} cols=price,put_gxoi,call_gxoi day=0 lw=3 ss=t'
     }
 ];
 
