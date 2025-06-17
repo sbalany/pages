@@ -2,31 +2,31 @@
 const infoItems = [
     {
         label: 'OI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} oi exp={exps} flip=t rng={range}'
     },
     {
         label: 'Van-OI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} vannaxoi exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} vannaxoi exp={exps} flip=t rng={range}'
     },
     {
         label: 'GxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxoi exp={exps} flip=t rng={range}'
     },
     {
         label: 'GxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} gxvolm exp={exps} flip=t rng={range}'
     },
     {
         label: 'ChxOI',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxoi exp={exps} flip=t rng={range}'
     },
     {
         label: 'ChxVol',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} charmxvolm exp={exps} flip=t rng={range}'
     },
     {
         label: 'Vol-BS',
-        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp=1,2,{exp} flip=t rng={range}'
+        href: 'https://convexvalue.com/go/joy/?q=joy {ticker} volm_bs exp={exps} flip=t rng={range}'
     },
     {
         label: 'Vol-BS (Day)',
@@ -122,6 +122,7 @@ async function fetchData() {
                 link.href = item.href
                     .replace('{ticker}', ticker)
                     .replace('{range}', range)
+                    .replace('{exps}', '1-5')
                     .replace('{exp}', exp);  // Add the calculated weeks into the URL
                 link.textContent = item.label;
                 linksDiv.appendChild(link);
